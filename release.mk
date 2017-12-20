@@ -1,6 +1,7 @@
 # Makefile.rules version 1.1 (2017-12-20)
 #
 # Helpful Makefile rules for releasing Python packages.
+# https://github.com/mgedmin/python-project-skel
 
 # You might want to change these
 FILE_WITH_VERSION ?= setup.py
