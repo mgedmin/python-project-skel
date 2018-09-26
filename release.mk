@@ -1,4 +1,4 @@
-# Makefile.rules version 1.1 (2017-12-20)
+# Makefile.rules version 1.2 (2018-09-26)
 #
 # Helpful Makefile rules for releasing Python packages.
 # https://github.com/mgedmin/python-project-skel
@@ -11,7 +11,7 @@ CHANGELOG_FORMAT ?= $(changelog_ver) ($(changelog_date))
 
 # These should be fine
 PYTHON ?= python
-PYPI_PUBLISH ?= rm -rf dist && $(PYTHON) setup.py -q sdist bdist_wheel && twine upload dist/*
+PYPI_PUBLISH ?= rm -rf dist && $(PYTHON) setup.py -q sdist bdist_wheel && twine check dist/* && twine upload dist/*
 
 # These should be fine, as long as you use Git
 VCS_GET_LATEST ?= git pull
