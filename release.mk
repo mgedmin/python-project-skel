@@ -1,4 +1,4 @@
-# Makefile.rules version 1.2 (2018-09-26)
+# Makefile.rules version 1.2.1 (2018-11-03)
 #
 # Helpful Makefile rules for releasing Python packages.
 # https://github.com/mgedmin/python-project-skel
@@ -54,7 +54,7 @@ distcheck-sdist:
 	  $(VCS_EXPORT) && \
 	  cd tmp && \
 	  tar -xzf ../dist/$$pkg_and_version.tar.gz && \
-	  diff -ur $$pkg_and_version tree -x PKG-INFO -x setup.cfg -x '*.egg-info' && \
+	  diff -ur $$pkg_and_version tree -x PKG-INFO -x setup.cfg -x '*.egg-info' -I'^#' && \
 	  cd $$pkg_and_version && \
 	  make dist check && \
 	  cd .. && \
@@ -64,7 +64,7 @@ distcheck-sdist:
 	  cd ../two/ && \
 	  tar -xzf ../$$pkg_and_version/dist/$$pkg_and_version.tar.gz && \
 	  cd .. && \
-	  diff -ur one two -x SOURCES.txt && \
+	  diff -ur one two -x SOURCES.txt -I'^#:' && \
 	  cd .. && \
 	  rm -rf tmp && \
 	  echo "sdist seems to be ok"
