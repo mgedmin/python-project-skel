@@ -3,7 +3,7 @@ Python project skeleton
 =======================
 
 At the moment this repository contains one thing only: reusable Makefile rules
-for `make release` that I use in all `Python projects I maintain`__.
+for ``make release`` that I use in all `Python projects I maintain`__.
 
 __ https://projects.gedmin.as
 
@@ -43,11 +43,14 @@ because my makefiles do a bit more for my peace of mind:
 - check that MANIFEST.in is correct (this Makefile rule predates
   check-manifest_, which I should be using instead)
 - check that long_description in setup.py is valid ReStructuredText
-  (this predates readme-renderer_, which I should be using instead)
+  (this predates ``twine check``, which I should be using instead)
 
 Besides, some of my packages use historical changelog filenames/date formats
 that zest.releaser doesn't (currently) support.
 
+The shared makefile also implements a ``make help``, generated from comments
+in the project Makefile, inspired by `Self-Documented Makefile
+<https://marmelab.com/blog/2016/02/29/auto-documented-makefile.html>`_.
+
 .. _check-manifest: https://pypi.python.org/pypi/check-manifest
-.. _readme-renderer: https://pypi.python.org/pypi/readme-renderer
 .. _zest.releaser: https://pypi.python.org/pypi/zest.releaser
